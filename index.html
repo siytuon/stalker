@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>SkyWay - P2P Media example</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
   </head>
   <body>
     <div class="container">
@@ -13,9 +14,10 @@
         Enter remote peer ID to call.
       </p>
       <div class="p2p-media">
-        <div class="remote-stream">
+        <div class="remote-stream" id="content">
           <video id="js-remote-stream"></video>
         </div>
+        <div id="item"></div>
         <div class="local-stream">
           <video id="js-local-stream"></video>
           <p>Your ID: <span id="js-local-id"></span></p>
@@ -24,6 +26,7 @@
           <button id="js-close-trigger">Close</button>
         </div>
       </div>
+      <div id="area1"></div>
       <p class="meta" id="js-meta"></p>
     </div>
     <script src="//cdn.webrtc.ecl.ntt.com/skyway-4.3.0.js"></script>
