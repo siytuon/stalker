@@ -87,7 +87,7 @@ const content = document.getElementById('content');
 const item = document.getElementById('item');
 content.addEventListener('mousemove', stalker);
 function stalker(e) {
-  item.style.transform = 'translate(' + e.clientX + 'px, ' + e.clientY + 'px)';
+  item.style.transform = 'translate(' + e.pageX + 'px, ' + e.pageY + 'px)';
 }
 
 //マウス座標取得
