@@ -81,3 +81,17 @@ const Peer = window.Peer;
 
   peer.on('error', console.error);
 })();
+
+//マウスストーカー
+const content = document.getElementById('content');
+const item = document.getElementById('item');
+content.addEventListener('mousemove', stalker);
+function stalker(e) {
+  item.style.transform = 'translate(' + e.clientX + 'px, ' + e.clientY + 'px)';
+}
+
+//マウス座標取得
+$("#content").mousemove(function(e){
+  var str = "X座標：" + e.offsetX + " Y座標：" + e.offsetY;
+  document.getElementById("area1").innerText = str;
+});
