@@ -26,7 +26,7 @@ const Peer = window.Peer;
   localVideo.muted = true;
   localVideo.srcObject = localStream;
   localVideo.playsInline = true;
-  await localVideo.play().catch(console.error);
+  // await localVideo.play().catch(console.error);
 
   const peer = (window.peer = new Peer({
     key: 'f89049b2-d19b-40f4-8bb0-8e0adc710bf4',
@@ -83,15 +83,19 @@ const Peer = window.Peer;
 })();
 
 //マウスストーカー
-const content = document.getElementById('content');
+const content = document.getElementById('js-remote-stream');
 const item = document.getElementById('item');
 content.addEventListener('mousemove', stalker);
 function stalker(e) {
   item.style.transform = 'translate(' + e.pageX + 'px, ' + e.pageY + 'px)';
 }
 
+let video = document.getElementById('js-remote-stream');
+var video_w = video.clientWidth;
+var video_h = video.clientHeight;
+
 //マウス座標取得
-$("#content").mousemove(function(e){
-  var str = "X座標：" + e.offsetX + " Y座標：" + e.offsetY;
+$("#js-remote-stream").mousemove(function(e){
+  var str = "X座標：" + e.offsetX + '/' + video_w + " Y座標：" + e.offsetY + '/' + video_h;
   document.getElementById("area1").innerText = str;
 });
