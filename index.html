@@ -6,6 +6,7 @@
     <title>SkyWay - P2P Media example</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
   </head>
   <body>
     <div class="container">
@@ -21,9 +22,17 @@
         <div class="local-stream">
           <video id="js-local-stream"></video>
           <p>Your ID: <span id="js-local-id"></span></p>
-          <input type="text" placeholder="Remote Peer ID" id="js-remote-id">
-          <button id="js-call-trigger">Call</button>
-          <button id="js-close-trigger">Close</button>
+          <form class="row g-3">
+            <div class="col-auto">
+              <input type="text" placeholder="Remote Peer ID" id="js-remote-id" class="form-control">
+            </div>
+            <div class="col-auto">
+              <button id="js-call-trigger" class="btn btn-primary">Call</button>
+            </div>
+            <div class="col-auto">
+              <button id="js-close-trigger" class="btn btn-secondary">Close</button>
+            </div>
+          </form>
         </div>
       </div>
       <div id="area1"></div>

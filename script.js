@@ -85,14 +85,25 @@ const Peer = window.Peer;
 //マウスストーカー
 const content = document.getElementById('js-remote-stream');
 const item = document.getElementById('item');
-content.addEventListener('mousemove', stalker);
-function stalker(e) {
-  item.style.transform = 'translate(' + e.pageX + 'px, ' + e.pageY + 'px)';
-}
+$(content)
+  .mousemove(function(e){
+    item.style.transform = 'translate(' + e.pageX + 'px, ' + e.pageY + 'px)';
+  })
+  .touchmove(function(e){
+    item.style.transform = 'translate(' + e.pageX + 'px, ' + e.pageY + 'px)';
+  });
+
+
 
 let video = document.getElementById('js-remote-stream');
 var video_w = video.clientWidth;
 var video_h = video.clientHeight;
+
+$(window).resize(function(){
+  // let video = document.getElementById('js-remote-stream');
+  video_w = video.clientWidth;
+  video_h = video.clientHeight;
+});
 
 //マウス座標取得
 $("#js-remote-stream").mousemove(function(e){
