@@ -90,6 +90,7 @@ $(content)
     item.style.transform = 'translate(' + e.pageX + 'px, ' + e.pageY + 'px)';
   })
   .touchmove(function(e){
+    e.preventDefault();
     item.style.transform = 'translate(' + e.pageX + 'px, ' + e.pageY + 'px)';
   });
 
