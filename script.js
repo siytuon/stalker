@@ -104,7 +104,10 @@ $(window).resize(function(){
 });
 
 //マウス座標取得
-$("#js-remote-stream").mousemove(function(e){
+$(content).mousemove(function(e){
+  var str = 'X座標：' + e.offsetX + '/' + video_w + ' Y座標：' + e.offsetY + '/' + video_h;
+  document.getElementById("area1").innerText = str;
+}) .on('touchmove', function(e){
   var str = 'X座標：' + e.offsetX + '/' + video_w + ' Y座標：' + e.offsetY + '/' + video_h;
   document.getElementById("area1").innerText = str;
 });
