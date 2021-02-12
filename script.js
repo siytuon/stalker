@@ -85,29 +85,31 @@ const Peer = window.Peer;
 //マウスストーカー
 const content = document.getElementById('js-remote-stream');
 const item = document.getElementById('item');
-$(content)
-  .mousemove(function(e){
-    item.style.transform = 'translate(' + e.pageX + 'px, ' + e.pageY + 'px)';
-  })
-  .touchmove(function(e){
-    e.preventDefault();
-    item.style.transform = 'translate(' + e.pageX + 'px, ' + e.pageY + 'px)';
-  });
+$(content).mousemove(function(e){
+  item.style.transform = 'translate(' + e.pageX + 'px, ' + e.pageY + 'px)';
+}) .on('touchmove', function(e){
+  e.preventDefault();
+  item.style.transform = 'translate(' + e.pageX + 'px, ' + e.pageY + 'px)';
+});
 
 
 
-let video = document.getElementById('js-remote-stream');
+const video = document.getElementById('js-remote-stream');
 var video_w = video.clientWidth;
 var video_h = video.clientHeight;
 
 $(window).resize(function(){
-  // let video = document.getElementById('js-remote-stream');
   video_w = video.clientWidth;
   video_h = video.clientHeight;
 });
 
 //マウス座標取得
 $("#js-remote-stream").mousemove(function(e){
-  var str = "X座標：" + e.offsetX + '/' + video_w + " Y座標：" + e.offsetY + '/' + video_h;
+  var str = 'X座標：' + e.offsetX + '/' + video_w + ' Y座標：' + e.offsetY + '/' + video_h;
   document.getElementById("area1").innerText = str;
 });
+
+$("#slider").on('input change', function(){
+  var str1 = 'Z座標：' + $("#slider").val() + '/50';
+  document.getElementById("area2").innerText = str1;
+})
